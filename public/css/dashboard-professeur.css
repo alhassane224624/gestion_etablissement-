@@ -1,0 +1,936 @@
+/* Responsive moderne */
+@media (max-width: 768px) {
+    .quick-stats {
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+    
+    .quick-stats h3 {
+        font-size: 2.25rem;
+    }
+    
+    .stat-card,
+    .action-card {
+        margin-bottom: 24px;
+        padding: 24px;
+    }
+    
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+    
+    #quickNoteForm {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+    }
+    
+    .stat-card h4 {
+        font-size: 2rem;
+    }
+}
+
+/* Animations avancées */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.stat-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+.action-card {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.action-card:nth-of-type(1) { animation-delay: 0.2s; }
+.action-card:nth-of-type(2) { animation-delay: 0.4s; }
+.action-card:nth-of-type(3) { animation-delay: 0.6s; }
+
+.stat-icon:hover {
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Améliorations visuelles modernes */
+.bg-light {
+    background: linear-gradient(135deg, var(--gray-50), var(--gray-100)) !important;
+}
+
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+.rounded {
+    border-radius: 12px !important;
+}
+
+/* Photo de profil dans le tableau - Design moderne */
+.rounded-circle {
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.rounded-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Icônes dans les en-têtes */
+.action-card h5 i {
+    margin-right: 8px;
+    padding: 8px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 8px;
+    color: var(--primary-color);
+}
+
+/* Espacement des éléments */
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.mt-4 {
+    margin-top: 2rem !important;
+}
+
+/* Effets de texte modernes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Boutons Bootstrap améliorés */
+.btn {
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-primary {
+    background: rgba(99, 102, 241, 0.1);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline-success:hover {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-warning {
+    background: rgba(245, 158, 11, 0.1);
+    border: 2px solid var(--warning-color);
+    color: var(--warning-color);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline-warning:hover {
+    background: var(--warning-color);
+    border-color: var(--warning-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-info {
+    background: rgba(6, 182, 212, 0.1);
+    border: 2px solid var(--info-color);
+    color: var(--info-color);
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline-info:hover {
+    background: var(--info-color);
+    border-color: var(--info-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Scrollbar personnalisé pour les éléments avec défilement */
+.table-responsive::-webkit-scrollbar,
+.action-card::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track,
+.action-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb,
+.action-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover,
+.action-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+}
+
+/* Effets de particules pour les cartes principales */
+.quick-stats::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px, 150px 150px, 120px 120px, 180px 180px;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Animation de pulsation pour les statistiques importantes */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.stat-card:hover .stat-icon {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Indicateurs de performance avec couleurs dynamiques */
+.performance-indicator {
+    position: relative;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.performance-indicator.excellent {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.performance-indicator.good {
+    background: linear-gradient(135deg, #06b6d4, #22d3ee);
+    color: white;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.performance-indicator.average {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.performance-indicator.needs-improvement {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Mode sombre (optionnel) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+    
+    .stat-card,
+    .action-card {
+        background: rgba(30, 41, 59, 0.95);
+        color: #e2e8f0;
+        border-color: rgba(71, 85, 105, 0.3);
+    }
+    
+    .action-card h5 {
+        color: #f1f5f9;
+        border-bottom-color: rgba(71, 85, 105, 0.3);
+    }
+    
+    .stat-card h4 {
+        color: #f1f5f9;
+    }
+    
+    #quickNoteForm {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(71, 85, 105, 0.3);
+    }
+    
+    .table-responsive {
+        background: rgba(30, 41, 59, 0.95);
+        border-color: rgba(71, 85, 105, 0.3);
+    }
+    
+    .table thead th {
+        background: linear-gradient(135deg, #334155, #475569);
+        color: #e2e8f0;
+    }
+    
+    .table {
+        color: #e2e8f0;
+    }
+}
+
+/* Améliorations finales pour une expérience premium */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+.container-fluid,
+.container {
+    padding: 0 20px;
+}
+
+/* Animation de chargement pour les éléments */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+}/* Variables CSS pour les couleurs modernes */
+:root {
+    --primary-color: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --success-color: #10b981;
+    --success-light: #34d399;
+    --warning-color: #f59e0b;
+    --warning-light: #fbbf24;
+    --danger-color: #ef4444;
+    --danger-light: #f87171;
+    --info-color: #06b6d4;
+    --info-light: #22d3ee;
+    --light-color: #f8fafc;
+    --dark-color: #0f172a;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Background général */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Statistiques rapides - Design Glassmorphism */
+.quick-stats {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    color: white;
+    box-shadow: var(--shadow-large);
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #10b981);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.quick-stats h3 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(45deg, #ffffff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.quick-stats p {
+    font-size: 1rem;
+    opacity: 0.95;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Cartes de statistiques - Design Neumorphism moderne */
+.stat-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.stat-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.stat-icon::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.stat-card:hover .stat-icon {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h4 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gray-800);
+    background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+/* Cartes d'action - Design moderne avec micro-interactions */
+.action-card {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.action-card:hover::after {
+    left: 100%;
+}
+
+.action-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.action-card h5 {
+    color: var(--gray-800);
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--gray-100);
+    font-size: 1.25rem;
+    position: relative;
+}
+
+.action-card h5::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    border-radius: 1px;
+}
+
+/* Boutons d'action - Design moderne avec effets 3D */
+.btn-action {
+    padding: 12px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.025em;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-action:hover::before {
+    left: 100%;
+}
+
+.btn-action:hover {
+    text-decoration: none;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-action:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-action.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border: none;
+    color: white;
+}
+
+.btn-action.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: white;
+}
+
+.btn-action.btn-secondary {
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+    border: none;
+    color: white;
+}
+
+.btn-action.btn-success {
+    background: linear-gradient(135deg, var(--success-color), var(--success-light));
+    border: none;
+    color: white;
+}
+
+.btn-action.btn-warning {
+    background: linear-gradient(135deg, var(--warning-color), var(--warning-light));
+    border: none;
+    color: white;
+}
+
+.btn-action.btn-danger {
+    background: linear-gradient(135deg, var(--danger-color), var(--danger-light));
+    border: none;
+    color: white;
+}
+
+/* Tableaux améliorés - Design moderne */
+.table-responsive {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table {
+    margin-bottom: 0;
+    color: var(--gray-700);
+}
+
+.table thead th {
+    background: linear-gradient(135deg, var(--gray-50), var(--gray-100));
+    border-bottom: none;
+    font-weight: 700;
+    color: var(--gray-800);
+    padding: 16px;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.table-hover tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+    transform: scale(1.01);
+}
+
+.table td {
+    padding: 16px;
+    border-color: var(--gray-100);
+    vertical-align: middle;
+}
+
+/* Badges personnalisés - Design moderne */
+.badge {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.badge:hover::before {
+    left: 100%;
+}
+
+.badge.bg-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+    border: none;
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, var(--success-color), var(--success-light)) !important;
+    border: none;
+}
+
+.badge.bg-danger {
+    background: linear-gradient(135deg, var(--danger-color), var(--danger-light)) !important;
+    border: none;
+}
+
+.badge.bg-secondary {
+    background: linear-gradient(135deg, #6b7280, #9ca3af) !important;
+    border: none;
+}
+
+/* Alertes personnalisées - Design moderne */
+.alert {
+    border-radius: 16px;
+    border: none;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: currentColor;
+    opacity: 0.7;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    border-left: 4px solid var(--warning-color);
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #1e40af;
+    border-left: 4px solid var(--info-color);
+}
+
+/* Formulaire de saisie rapide - Design moderne */
+#quickNoteForm {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#quickNoteForm::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color), var(--info-color));
+}
+
+#quickNoteForm .form-label {
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+}
+
+#quickNoteForm .form-control,
+#quickNoteForm .form-select {
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+    padding: 12px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+#quickNoteForm .form-control:focus,
+#quickNoteForm .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    outline: none;
+}
+
+#quickNoteForm .btn-success {
+    background: linear-gradient(135deg, var(--success-color), var(--success-light));
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+#quickNoteForm .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quick-stats {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .stat-card,
+    .action-card {
+        margin-bottom: 20px;
+    }
+    
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.action-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Améliorations visuelles */
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.fw-medium {
+    font-weight: 500 !important;
+}
+
+.rounded {
+    border-radius: 0.375rem !important;
+}
+
+/* Photo de profil dans le tableau */
+.rounded-circle {
+    border: 2px solid #e9ecef;
+}
+
+/* Icônes dans les en-têtes */
+.action-card h5 i {
+    margin-right: 8px;
+}
+
+/* Espacement des éléments */
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
