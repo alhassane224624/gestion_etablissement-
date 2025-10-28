@@ -197,8 +197,9 @@ class MessageController extends Controller
     {
         $auth = Auth::user();
         
-        if (!$auth->isAdmin()) {
-            abort(403, 'Action non autorisée.');
+        // 🔒 VÉRIFICATION : Seuls les administrateurs peuvent supprimer
+        if ($auth->role !== 'administrateur') {
+            abort(403, 'Action non autorisée. Seuls les administrateurs peuvent supprimer des conversations.');
         }
 
         DB::table('messages')
@@ -218,8 +219,9 @@ class MessageController extends Controller
     {
         $auth = Auth::user();
         
-        if (!$auth->isAdmin()) {
-            abort(403, 'Action non autorisée.');
+        // 🔒 VÉRIFICATION : Seuls les administrateurs peuvent supprimer en masse
+        if ($auth->role !== 'administrateur') {
+            abort(403, 'Action non autorisée. Seuls les administrateurs peuvent supprimer des conversations.');
         }
 
         $validated = $request->validate([
@@ -242,6 +244,26 @@ class MessageController extends Controller
 
         return redirect()->route('messages.index')
             ->with('success', 'Les conversations sélectionnées ont été supprimées avec succès.');
+    }
+
+    // 🔒 NOUVELLE MÉTHODE : Supprimer toutes les conversations (Admin uniquement)
+    public function reset()
+    {
+        $auth = Auth::user();
+        
+        // 🔒 VÉRIFICATION : Seuls les administrateurs peuvent tout supprimer
+        if ($auth->role !== 'administrateur') {
+            abort(403, 'Action non autorisée. Seuls les administrateurs peuvent supprimer toutes les conversations.');
+        }
+
+        // Supprimer tous les messages de l'utilisateur connecté
+        DB::table('messages')
+            ->where('sender_id', $auth->id)
+            ->orWhere('receiver_id', $auth->id)
+            ->delete();
+
+        return redirect()->route('messages.index')
+            ->with('success', '✅ Toutes vos conversations ont été supprimées avec succès.');
     }
 
     public function unreadCount()

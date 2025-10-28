@@ -2,18 +2,19 @@
 
 namespace App\Notifications;
 
+use App\Models\Echeancier;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class RappelEcheanceNotification extends Notification
+class RappelEcheanceNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
     protected $echeancier;
 
-    public function __construct($echeancier)
+    public function __construct(Echeancier $echeancier)
     {
         $this->echeancier = $echeancier;
     }
@@ -46,7 +47,7 @@ class RappelEcheanceNotification extends Notification
             ->greeting('Bonjour ' . $notifiable->name . ',')
             ->line("Nous vous rappelons qu'une échéance de paiement approche :")
             ->line('**Titre :** ' . $this->echeancier->titre)
-            ->line('**Montant :** ' . $this->echeancier->montant_restant . ' DH')
+            ->line('**Montant :** ' . number_format($this->echeancier->montant_restant, 2) . ' DH')
             ->line('**Date limite :** ' . $this->echeancier->date_echeance->format('d/m/Y'))
             ->line("**Jours restants :** {$joursRestants}")
             ->action('Voir mes échéanciers', route('stagiaire.echeanciers'))

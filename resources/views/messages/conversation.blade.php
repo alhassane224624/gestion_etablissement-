@@ -48,12 +48,14 @@
       <div class="actions d-flex gap-2">
         <a href="{{ route('messages.index') }}"><i class="fa-solid fa-inbox"></i> Boîte</a>
 
-        {{-- supprimer la conversation --}}
-        <form action="{{ route('messages.delete', $contact->id) }}" method="POST"
-              onsubmit="return confirm('Supprimer la conversation avec {{ $contact->name }} ?')">
-          @csrf @method('DELETE')
-          <button type="submit"><i class="fa-solid fa-trash-can"></i> Supprimer</button>
-        </form>
+        {{-- Bouton supprimer uniquement pour les administrateurs --}}
+        @if(auth()->user()->role === 'administrateur')
+          <form action="{{ route('messages.delete', $contact->id) }}" method="POST"
+                onsubmit="return confirm('Supprimer la conversation avec {{ $contact->name }} ?')">
+            @csrf @method('DELETE')
+            <button type="submit"><i class="fa-solid fa-trash-can"></i> Supprimer</button>
+          </form>
+        @endif
       </div>
     </div>
 

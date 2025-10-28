@@ -227,6 +227,32 @@ public function imprimer(Echeancier $echeancier)
         return redirect()->route('echeanciers.index')
             ->with('success', 'Échéancier supprimé avec succès.');
     }
+    /**
+ * Vue stagiaire : Mes échéanciers
+ */
+public function mesEcheanciers()
+{
+    $stagiaire = auth()->user()->stagiaire;
+    
+    if (!$stagiaire) {
+        abort(403, 'Aucun profil stagiaire associé');
+    }
+    
+    $echeanciers = $stagiaire->echeanciers()
+        ->with('anneeScolaire')
+        ->orderBy('date_echeance', 'desc')
+        ->get();
+    
+    $stats = [
+        'total_a_payer' => $echeanciers->sum('montant'),
+        'total_paye' => $echeanciers->sum('montant_paye'),
+        'total_restant' => $echeanciers->sum('montant_restant'),
+        'en_retard' => $echeanciers->where('statut', 'en_retard')->count(),
+        'payes' => $echeanciers->where('statut', 'paye')->count(),
+    ];
+    
+    return view('stagiaire.echeanciers', compact('echeanciers', 'stats'));
+}
 
     /**
      * Vérifier et mettre à jour les retards

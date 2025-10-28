@@ -8,15 +8,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PaiementRefuseNotification extends Notification
+class PaiementRefuseNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
     protected $paiement;
+    protected $motif;
 
-    public function __construct(Paiement $paiement)
+    public function __construct(Paiement $paiement, $motif = null)
     {
         $this->paiement = $paiement;
+        $this->motif = $motif ?? $paiement->notes_admin;
     }
 
     public function via($notifiable)
@@ -43,7 +45,7 @@ class PaiementRefuseNotification extends Notification
             ->greeting('Bonjour ' . $notifiable->name . ',')
             ->line("Votre paiement de **{$this->paiement->montant} DH** a été refusé.")
             ->line('**Numéro de transaction :** ' . $this->paiement->numero_transaction)
-            ->line('**Motif :** ' . ($this->paiement->notes_admin ?? 'Non spécifié'))
+            ->line('**Motif :** ' . ($this->motif ?? 'Non spécifié'))
             ->line('Veuillez contacter l\'administration pour plus d\'informations.')
             ->action('Voir mes paiements', route('stagiaire.paiements'))
             ->line('Cordialement.');

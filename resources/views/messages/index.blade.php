@@ -215,7 +215,8 @@
       </a>
     @endif
     
-    @if($threads->count() > 0)
+    {{-- 🔒 Bouton "Tout Supprimer" uniquement pour les administrateurs --}}
+    @if(auth()->user()->role === 'administrateur' && $threads->count() > 0)
       <form action="{{ route('messages.reset') }}" method="POST" style="margin-left: auto;"
             onsubmit="return confirm('⚠️ Êtes-vous sûr de vouloir supprimer TOUTES vos conversations ?\n\nCette action est irréversible.')">
         @csrf

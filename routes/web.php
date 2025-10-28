@@ -77,19 +77,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // MESSAGERIE ET NOTIFICATIONS
     // ============================================================================
 
-    Route::prefix('messages')->name('messages.')->group(function () {
-        Route::get('/', [MessageController::class, 'index'])->name('index');
-        Route::get('/create', [MessageController::class, 'create'])->name('create');
-        Route::post('/send', [MessageController::class, 'sendById'])->name('send.by-id');
-        Route::post('/send/{user}', [MessageController::class, 'store'])->name('send');
-        Route::get('/conversation/{user}', [MessageController::class, 'conversation'])->name('conversation');
-        Route::get('/send-group', [MessageController::class, 'showSendGroupForm'])->name('send-group.form');
-        Route::post('/send-group', [MessageController::class, 'sendGroup'])->name('send-group');
-        Route::get('/unread-count', [MessageController::class, 'unreadCount'])->name('unread-count');
-        Route::delete('/{user}/delete', [MessageController::class, 'deleteConversation'])->name('delete');
-        Route::post('/bulk-delete', [MessageController::class, 'bulkDelete'])->name('bulk-delete');
-        Route::post('/reset', [MessageController::class, 'resetConversations'])->name('reset');
-    });
+   Route::prefix('messages')->name('messages.')->group(function () {
+    Route::get('/', [MessageController::class, 'index'])->name('index');
+    Route::get('/create', [MessageController::class, 'create'])->name('create');
+    Route::post('/send', [MessageController::class, 'sendById'])->name('send.by-id');
+    Route::post('/send/{user}', [MessageController::class, 'store'])->name('send');
+    Route::get('/conversation/{user}', [MessageController::class, 'conversation'])->name('conversation');
+    Route::get('/send-group', [MessageController::class, 'showSendGroupForm'])->name('send-group.form');
+    Route::post('/send-group', [MessageController::class, 'sendGroup'])->name('send-group');
+    Route::get('/unread-count', [MessageController::class, 'unreadCount'])->name('unread-count');
+    Route::delete('/{user}/delete', [MessageController::class, 'deleteConversation'])->name('delete');
+    Route::post('/bulk-delete', [MessageController::class, 'bulkDelete'])->name('bulk-delete');
+    Route::post('/reset', [MessageController::class, 'reset'])->name('reset'); // ✅ Correction ici
+});
+
 
     Route::prefix('notifications')->name('notifications.')->group(function () {
         Route::get('/', [NotificationController::class, 'index'])->name('index');
@@ -116,7 +117,7 @@ Route::middleware(['auth', 'verified', 'stagiaire'])->prefix('stagiaire')->name(
     Route::get('/absences', [StagiaireSpaceController::class, 'mesAbsences'])->name('absences');
     Route::get('/profil', [StagiaireSpaceController::class, 'monProfil'])->name('profil');
     
-    // 💰 PAIEMENTS STAGIAIRE
+    // 💰 PAIEMENTS STAGIAIRE - ✅ CORRECTION APPLIQUÉE
     Route::get('/mes-paiements', [PaiementController::class, 'mesPaiements'])->name('paiements');
     Route::get('/mes-echeanciers', [EcheancierController::class, 'mesEcheanciers'])->name('echeanciers');
     Route::get('/paiement/{paiement}/recu', [PaiementController::class, 'telechargerRecu'])->name('paiement.recu');
@@ -154,7 +155,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
     
     // ========================================================================
-    // 📊 RAPPORTS FINANCIERS - CORRECTION APPLIQUÉE ✅
+    // 📊 RAPPORTS FINANCIERS
     // ========================================================================
     Route::prefix('admin/rapports')->name('admin.rapports.')->group(function () {
         Route::get('/financier', [RapportFinancierController::class, 'index'])->name('financier');
@@ -230,7 +231,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/statistics/export', [StatisticsController::class, 'export'])->name('statistics.export');
     
     // ============================================================================
-    // 💳 SYSTÈME DE PAIEMENT COMPLET
+    // 💳 SYSTÈME DE PAIEMENT COMPLET - ✅ ROUTES CORRIGÉES
     // ============================================================================
     
     // Paiements
@@ -241,6 +242,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::get('/{paiement}', [PaiementController::class, 'show'])->name('show');
         Route::post('/{paiement}/valider', [PaiementController::class, 'valider'])->name('valider');
         Route::post('/{paiement}/refuser', [PaiementController::class, 'refuser'])->name('refuser');
+        // ✅ CORRECTION: Utilisation de telechargerRecu au lieu de recu
         Route::get('/{paiement}/recu', [PaiementController::class, 'telechargerRecu'])->name('recu');
         Route::get('/stagiaire/{stagiaire}/historique', [PaiementController::class, 'historique'])->name('historique');
     });
